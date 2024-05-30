@@ -48,6 +48,11 @@ const Footer = () => {
                     </div>
                 </div>
 
+
+
+            </div>
+            <div className="copyright text-center border-t-2 p-5">
+                <p className='text-[20px] leading-[26.3px] text-[#0000004D] font-semibold'>Copyrights © 2023 All Rights Reserved by SemiColonWeb </p>
             </div>
         </section>
     )

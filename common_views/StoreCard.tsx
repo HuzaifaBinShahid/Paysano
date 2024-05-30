@@ -37,7 +37,7 @@ const StoreCard: React.FC<StoreCardProps> = ({ storeName, openingHours, rating, 
     }, []);
 
     return (
-        <div ref={cardRef} className="card rounded-lg border-white bg-cardbg shadow-lg">
+        <div ref={cardRef} className="card rounded-lg border-white bg-white shadow-lg">
             <Image
                 src={imageSrc}
                 alt={storeName}
@@ -45,17 +45,15 @@ const StoreCard: React.FC<StoreCardProps> = ({ storeName, openingHours, rating, 
                 height={300}
             />
             <div className="details flex flex-col items-start p-8">
-                <div className='bg-green h-[40px] w-[200px] rounded-full flex items-center justify-center mb-3 px-5'>
-                   
-                        <Image
-                            src='./storesSection/clock.svg'
-                            alt='clock'
-                            width={20}
-                            height={20}
-                            className='px-3 m-3'
-                        />
-                   
-                    <p className='py-3 my-2'>{openingHours}</p>
+                <div className='bg-green h-[40px] w-[200px] rounded-full flex items-center justify-center mb-3 px-5 gap-x-3'>
+                    <Image
+                        src='/storesSection/clock.svg'
+                        alt='clock'
+                        width={20}
+                        height={20}
+                        className='pr-3 mr-3'
+                    />
+                    <p className='py-4 my-2'>{openingHours}</p>
                 </div>
                 <span className='text-xl font-semibold mb-3 hover:text-green'>{storeName}</span>
                 <div className="flex justify-start">

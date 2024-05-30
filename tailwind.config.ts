@@ -55,7 +55,6 @@ module.exports = {
         'xl': '1200px',
 
       },
-      
     },
   },
   variants: {

@@ -18,8 +18,6 @@ const page = () => {
             <Restuarants />
             <Contact />
             <Footer />
-
-
         </div>
 
     )

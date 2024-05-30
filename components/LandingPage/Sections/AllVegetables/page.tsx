@@ -41,13 +41,13 @@ const AllVEGETABLES: React.FC = () => {
       <div className="flex flex-col lg:flex-row w-full justify-center ">
         <div className="relative w-[110%] lg:w-[400px] h-[500px] lg:h-[932px] overflow-hidden">
           <Image
-            src="./allvegetablesSection/all.png"
+            src="./allvegetablesSection/all.png" // Ensure the path is correct
             alt="Vegetables"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="rotate-90 lg:rotate-0"
           />
-          <div className="absolute inset-0 bg-[#0000004D] bg-opacity-50 flex flex-col items-center justify-center text-center text-white p-4">
+          <div className="absolute inset-0 bg-[#0000004D] bg-opacity-50 flex flex-col items-center justify-center text-center text-white p-4 ">
             <h2 className="text-2xl lg:text-4xl font-semibold mb-4 opacity-100">Vegetables</h2>
             <div className='bg-green h-[50px] w-[150px] rounded-full flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110'>
               <RoundedButton type="button" title="Restaurants" variant="text-black font-bold" full={true} />

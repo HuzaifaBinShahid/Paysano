@@ -19,8 +19,8 @@ const Contact = () => {
               </div>
 
               <div className='input mt-6 text-center md:text-left'>
-                <input className='border border-none bg-cardbg py-3 mb-12 outline-none w-[67%] ' type="text" placeholder='Enter Your Email Address...' />
-                <span className='email-btn bg-green h-[37px] w-[105px] px-5 py-3 transition-transform duration-300 hover:translate-x-2 inline-flex items-center justify-center hover:cursor-pointer'>
+                <input className='border border-none bg-[#FAFAFA] p-2 mb-12 outline-none w-[67%] ' type="text" placeholder='Enter Your Email Address...' />
+                <span className='email-btn bg-green h-[37px] w-[105px] px-5 py-5 transition-transform duration-300 hover:text-black  hover:cursor-pointer inline-flex items-center justify-center '>
                   <RoundedButton
                     type='button'
                     title='Subscribe'

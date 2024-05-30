@@ -8,23 +8,25 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 
 const Navbar = () => {
     const [openMenu, setOpenMenu] = useState(false);
-    const [animationComplete, setAnimationComplete] = useState(false);
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setAnimationComplete(true);
-        }, 500);
-        return () => clearTimeout(timeout);
-    }, []);
+    // Animation
+    // const [animationComplete, setAnimationComplete] = useState(false);
+
+    // useEffect(() => {
+    //     const timeout = setTimeout(() => {
+    //         setAnimationComplete(true);
+    //     }, 500);
+    //     return () => clearTimeout(timeout);
+    // }, []);
 
     const toggleMenu = () => {
         setOpenMenu(!openMenu);
     };
 
     return (
-        <nav className={`flexBetween transition-opacity duration-500 ease-in-out ${animationComplete ? 'opacity-100' : 'opacity-0'}`}>
+        <nav className={`flexBetween`}>
             <Link href="/" className="lg:padding-container">
-                <Image src="/logo-main.svg" alt="logo" width={74} height={29} />
+                <Image src="/logo-main.svg" alt="logo" width={90} height={29} />
             </Link>
 
             <ul className="hidden bg-green h-full gap-12 lg:flex px-8 py-4 rounded">
