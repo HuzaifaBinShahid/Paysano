@@ -11,11 +11,13 @@ const Underconstruction = () => {
     return (
         <>
             <section id="underconstruction">
-                <div className="content my-20">
+                <div className="content my-3 lg:my-20 p-4">
                     <Navbar />
-                    <div className="container mx-auto flex justify-center items-center">
-                            <Image src={image} alt='image' className='w-3/6 animate-zoom' />
                   
+                    <div className="container mx-auto flex justify-center items-center mt-5">
+                        <div className="w-5/6 mt-20">
+                            <Image src={image} alt='image' />
+                        </div>
                     </div>
                 </div>
             </section>

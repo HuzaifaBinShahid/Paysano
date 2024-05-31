@@ -30,7 +30,7 @@ const HelloAndWelcome = () => {
           <h2 className= 'font-bold text-4xl'>HELLO & WELCOME</h2>
           <div className=' mx-auto w-3/6'>
             <p>Explore nearby restaurants and shops, discover enticing menus, read reviews, and effortlessly place orders.
-              <span className='text-green'>Welcome to Paysano-</span> where convenience meets local delights.</p>
+              <span className='text-green'> Welcome to Paysano</span> where convenience meets local delights.</p>
           </div>
         </div>
 

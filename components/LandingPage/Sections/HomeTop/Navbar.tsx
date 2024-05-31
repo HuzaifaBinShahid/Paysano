@@ -35,7 +35,7 @@ const Navbar = () => {
                         {link.label}
                     </Link>
                 ))}
-                <Link href="/">
+                <Link href="/getstarted">
                     <Image
                         src="/search.svg"
                         alt="search"
