@@ -11,6 +11,7 @@ interface Stores {
     close_time: string;
     reviews: number;
     average_rating: number;
+    emptyStarSrc: string;
 }
 
 const TopStores: React.FC = () => {
@@ -54,6 +55,7 @@ const TopStores: React.FC = () => {
                             rating={store.average_rating.toString()} // Converting number to string
                             numberOfReviews={store.reviews.toString()} // Converting number to string
                             imageSrc={store.profile_pic}
+                            emptyStarSrc = ''
                             
                         />
                     ))}
