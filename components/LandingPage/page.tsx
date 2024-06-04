@@ -13,7 +13,6 @@ const page = () => {
             <HomeTop />
             <HelloAndWelcome />
             <AllVegetables />
-            <Organic />
             <TopStores />
             <Restuarants />
             <Contact />

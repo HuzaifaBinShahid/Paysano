@@ -1,22 +1,60 @@
-import React from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import StoreCard from '@/common_views/StoreCard';
-import { Stores } from '@/constants';
 
-const TopStores = () => {
+interface Stores {
+    id: string;
+    name: string;
+    profile_pic: string;
+    open_time: string;
+    close_time: string;
+    reviews: number;
+    average_rating: number;
+}
+
+const TopStores: React.FC = () => {
+    const [topstores, setTopStores] = useState<Stores[]>([]);
+
+    useEffect(() => {
+        const fetchStores = async () => {
+            try {
+                const response = await axios.get('https://dashboard.paysano.it/public/api/landingPage/topStores');
+                if (response.data.status) {
+                    // Extracting required data from the API response
+                    const storesData: Stores[] = response.data.data.map((store: any) => ({
+                        id: store.id,
+                        name: store.name,
+                        profile_pic: `https://dashboard.paysano.it/public/storage/${store.profile_pic}`,
+                        open_time: store.open_time,
+                        close_time: store.close_time,
+                        reviews: store.reviews,
+                        average_rating: store.average_rating,
+                    }));
+                    setTopStores(storesData);
+                }
+            } catch (error) {
+                console.error('Error fetching top stores:', error);
+            }
+        };
+        fetchStores();
+    }, []);
+
     return (
-        <section id="topStores" className="mt-20 pb-20 bg-lightGray">
+        <section id="topStores" className="mt-20 pb-20 bg-lightGray p-5">
             <div className="flex flex-col items-center ">
                 <h2 className="text-4xl lg:text-4xl font-semibold m-10">Our Top <span className='text-green'>Stores</span></h2>
                 <p className='text-textGray max-w-lg mx-auto text-center mb-5'>Discover an enhanced search experience, personalized recommendation, streamlined ordering, and faster checkout in our latest update. Elevate your app usage with these improvements.</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
-                    {Stores.stores.map((store, index) => (
+                    {topstores.map((store, index) => (
                         <StoreCard
                             key={index}
-                            storeName={store.desc}
-                            openingHours={store.time}
-                            rating={store.rating}
-                            numberOfReviews={store.reviews} 
-                            imageSrc={store.iconSrc} 
+                            storeName={store.name}
+                            openingHours={`${store.open_time} - ${store.close_time}`}
+                            rating={store.average_rating.toString()} // Converting number to string
+                            numberOfReviews={store.reviews.toString()} // Converting number to string
+                            imageSrc={store.profile_pic}
+                            
                         />
                     ))}
                 </div>

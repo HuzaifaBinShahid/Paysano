@@ -1,4 +1,3 @@
-'use client'
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
@@ -9,9 +8,10 @@ type StoreCardProps = {
     rating: string;
     numberOfReviews: string;
     imageSrc: string;
+    emptyStarSrc: string;
 }
 
-const StoreCard: React.FC<StoreCardProps> = ({ storeName, openingHours, rating, numberOfReviews, imageSrc }) => {
+const StoreCard: React.FC<StoreCardProps> = ({ storeName, openingHours, rating, numberOfReviews, imageSrc, emptyStarSrc }) => {
     const cardRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -36,39 +36,65 @@ const StoreCard: React.FC<StoreCardProps> = ({ storeName, openingHours, rating, 
         }
     }, []);
 
+    // Determine the number of filled stars based on the rating
+    const filledStars = Math.floor(parseFloat(rating));
+
+    // Render filled stars
+    const filledStarComponents = [...Array(filledStars)].map((_, index) => (
+        <Image
+            key={index}
+            src='./storesSection/star.svg'
+            alt={`star-${index}`}
+            width={20}
+            height={20}
+        />
+    ));
+
+    // Determine the number of empty stars
+    const emptyStars = 5 - filledStars;
+
+    // Render empty stars
+    const emptyStarComponents = [...Array(emptyStars)].map((_, index) => (
+        <Image
+            key={index}
+            src='./storesSection/greystar.svg'
+            alt={`empty-star-${index}`}
+            width={20}
+            height={20}
+        />
+    ));
+
     return (
-        <div ref={cardRef} className="card rounded-lg border-white bg-white shadow-lg">
-            <Image
-                src={imageSrc}
-                alt={storeName}
-                width={342}
-                height={300}
-            />
-            <div className="details flex flex-col items-start p-8">
-                <div className='bg-green h-[40px] w-[200px] rounded-full flex items-center justify-center mb-3 px-5 gap-x-3'>
+        <div ref={cardRef} className="card rounded-lg border-white bg-white shadow-lg overflow-hidden">
+            <div className="image-container" style={{ width: '400px', height: '300px', position: 'relative' }}>
+                <Image
+                    src={imageSrc}
+                    alt={storeName}
+                    layout="fill" 
+                    objectFit="cover" 
+                    style={{ zIndex: 1 }} // Ensure the image stays on top
+                />
+            </div>
+            <div className="details flex flex-col items-start p-4">
+                <div className='bg-green h-[40px] w-[200px] rounded-full flex items-center justify-center mb-3 px-5 gap-4'>
                     <Image
                         src='/storesSection/clock.svg'
                         alt='clock'
                         width={20}
                         height={20}
-                        className='pr-3 mr-3'
                     />
                     <p className='py-4 my-2'>{openingHours}</p>
                 </div>
-                <span className='text-xl font-semibold mb-3 hover:text-green'>{storeName}</span>
-                <div className="flex justify-start">
-                    {[...Array(5)].map((_, index) => (
-                        <Image
-                            key={index}
-                            src='./storesSection/star.svg'
-                            alt={`star-${index}`}
-                            width={20}
-                            height={20}
-                            className='mr-2'
-                        />
-                    ))}
-                    <span className='text-lg font-semibold ml-3 mr-8'>{rating}</span>
-                    <span className='text-textGray'>{numberOfReviews}</span>
+                <span className='text-xl font-semibold mb-3 ml-3 hover:text-green'>{storeName}</span>
+                <div className="flex justify-start gap-4 px-4">
+                    <div className="stars flex justify-start px-4">
+                        {filledStarComponents}
+                        {emptyStarComponents}
+                    </div>
+                    <div className="ratings flex gap-4">
+                        <span className='text-lg font-semibold'>{rating}</span>
+                        <span className='text-textGray'>({numberOfReviews})</span>
+                    </div>
                 </div>
             </div>
         </div>

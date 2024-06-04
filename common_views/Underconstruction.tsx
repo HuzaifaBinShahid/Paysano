@@ -15,7 +15,7 @@ const Underconstruction = () => {
                     <Navbar />
                   
                     <div className="container mx-auto flex justify-center items-center mt-5">
-                        <div className="w-5/6 mt-20">
+                        <div className="w-5/6 lg mt-20">
                             <Image src={image} alt='image' />
                         </div>
                     </div>

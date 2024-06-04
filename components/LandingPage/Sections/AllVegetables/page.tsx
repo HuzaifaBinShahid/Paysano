@@ -1,22 +1,41 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import axios from 'axios';
 import VegetableCard from '@/common_views/VegetableCard';
-import { VEGETABLES } from '@/constants';
 import RoundedButton from '@/common_views/RoundedButton';
 
 interface Vegetable {
-  iconSrc: string;
-  iconAlt: string;
-  date: string;
+  id: number;
+  name: string;
+  image: string;
   price: string;
-  productName: string;
-  percentage: string;
-  description: string;
+  weight: string;
+  delivery_time: string;
+  vat_value: string;
+  category_name: string;
+  created_at: string;
 }
 
 const AllVEGETABLES: React.FC = () => {
   const [showComponent, setShowComponent] = useState(false);
+  const [vegetables, setVegetables] = useState<Vegetable[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchVegetables = async () => {
+      try {
+        const response = await axios.get('https://dashboard.paysano.it/public/api/landingPage/getVegetables');
+        setVegetables(response.data.data.slice(0, 6)); // Take only the first 6 vegetables
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching vegetables:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchVegetables();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +51,10 @@ const AllVEGETABLES: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section
       id="allVEGETABLES"
@@ -39,9 +62,9 @@ const AllVEGETABLES: React.FC = () => {
         }`}
     >
       <div className="flex flex-col lg:flex-row w-full justify-center ">
-        <div className="relative w-[110%] lg:w-[400px] h-[500px] lg:h-[932px] overflow-hidden">
+        <div className="relative w-[110%] lg:w-[900px] h-[500px] lg:h-[650px] xl:h-[932px] overflow-hidden">
           <Image
-            src="./allvegetablesSection/all.png" // Ensure the path is correct
+            src="./allvegetablesSection/all.png"
             alt="Vegetables"
             fill
             style={{ objectFit: 'cover' }}
@@ -56,16 +79,16 @@ const AllVEGETABLES: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:ml-0 lg:gap-0">
-          {VEGETABLES.vegetables.map((vegetable: Vegetable, index: number) => (
+          {vegetables.map((vegetable: Vegetable) => (
             <VegetableCard
-              key={index}
-              iconSrc={vegetable.iconSrc}
-              iconAlt={vegetable.iconAlt}
-              date={vegetable.date}
-              price={vegetable.price}
-              productName={vegetable.productName}
-              percentage={vegetable.percentage}
-              description={vegetable.description}
+              key={vegetable.id}
+              iconSrc={`https://dashboard.paysano.it/public/storage/${vegetable.image}`}
+              iconAlt={vegetable.name}
+              date={new Date(vegetable.created_at).toLocaleDateString()}
+              price={`${vegetable.price} per ${vegetable.weight}`}
+              productName={vegetable.name}
+              percentage={`${vegetable.vat_value}% VAT`}
+              description="" // Omitting the description
             />
           ))}
         </div>
