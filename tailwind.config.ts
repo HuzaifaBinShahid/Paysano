@@ -62,5 +62,8 @@ module.exports = {
       translate: ['hover'], 
     },
   },
+  images: {
+    domains: ['dashboard.paysano.it'],
+  },
   plugins: [],
 };

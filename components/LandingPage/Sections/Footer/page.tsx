@@ -5,8 +5,8 @@ const Footer = () => {
     return (
         <section className='footer mt-12 md:ml-3'>
 
-            <div className='flex flex-col lg:flex-row'> {/* Use flexbox for larger screens */}
-                <div className='first-half lg:w-1/2 lg:pr-10 flex flex-col items-center justify-center'> {/* For larger screens, set width to 50% and add right padding */}
+            <div className='flex flex-col lg:flex-row'> 
+                <div className='first-half lg:w-1/2 lg:pr-10 flex flex-col items-center justify-center'> 
                     <div className="logo mb-6 ">
                         <Image src="./logo-main.svg" alt='' width={64} height={53} />
                     </div>
@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
 
 
-                <div className="sections mt-12 lg:w-1/2 lg:pl-10 flex flex-col lg:flex-row items-center text-center lg:items-start lg:text-start "> {/* For larger screens, set width to 50% and add left padding */}
+                <div className="sections mt-12 lg:w-1/2 lg:pl-10 flex flex-col lg:flex-row items-center text-center lg:items-start lg:text-start "> 
                     <div className="support flex-1 m-6">
                         <h1 className="text-2xl font-semibold mb-6">Support</h1>
                         <ul className="space-y-3 text-textGray ">

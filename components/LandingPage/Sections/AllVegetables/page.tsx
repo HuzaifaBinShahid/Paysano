@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import axios from 'axios';
 import VegetableCard from '@/common_views/VegetableCard';
 import RoundedButton from '@/common_views/RoundedButton';
@@ -58,11 +59,10 @@ const AllVEGETABLES: React.FC = () => {
   return (
     <section
       id="allVEGETABLES"
-      className={`allVEGETABLES mt-20 transition-all duration-1000 ease-in-out ${showComponent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+      className={`allVEGETABLES mt-20 transition-all duration-1000 ease-in-out ${showComponent ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
-      <div className="flex flex-col lg:flex-row w-full justify-center ">
-        <div className="relative w-[110%] lg:w-[900px] h-[500px] lg:h-[650px] xl:h-[932px] overflow-hidden">
+      <div className="flex flex-col lg:flex-row w-full justify-center">
+        <div className="relative lg:w-[900px] h-[500px] lg:h-[680px] xl:h-[820px] overflow-hidden">
           <Image
             src="./allvegetablesSection/all.png"
             alt="Vegetables"
@@ -72,12 +72,11 @@ const AllVEGETABLES: React.FC = () => {
           />
           <div className="absolute inset-0 bg-[#0000004D] bg-opacity-50 flex flex-col items-center justify-center text-center text-white p-4 ">
             <h2 className="text-2xl lg:text-4xl font-semibold mb-4 opacity-100">Vegetables</h2>
-            <div className='bg-green h-[50px] w-[150px] rounded-full flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110'>
+            <div className="bg-green h-[50px] w-[150px] rounded-full flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110">
               <RoundedButton type="button" title="Restaurants" variant="text-black font-bold" full={true} />
             </div>
           </div>
         </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:ml-0 lg:gap-0">
           {vegetables.map((vegetable: Vegetable) => (
             <VegetableCard
@@ -87,11 +86,13 @@ const AllVEGETABLES: React.FC = () => {
               date={new Date(vegetable.created_at).toLocaleDateString()}
               price={`${vegetable.price} per ${vegetable.weight}`}
               productName={vegetable.name}
+              productNameLink={`/vegetable/${vegetable.id}`} // Pass the link here
               percentage={`${vegetable.vat_value}% VAT`}
-              description="" // Omitting the description
+              description=""
             />
           ))}
         </div>
+
       </div>
     </section>
   );

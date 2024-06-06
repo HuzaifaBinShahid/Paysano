@@ -1,12 +1,13 @@
-
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type VegetableCardProps = {
   iconSrc: string;
   iconAlt: string;
   date: string;
   price: string;
+  productNameLink?: string;
   productName: string;
   percentage: string;
   description: string;
@@ -18,6 +19,7 @@ const VegetableCard: React.FC<VegetableCardProps> = ({
   date,
   price,
   productName,
+  productNameLink,
   percentage,
   description,
 }) => {
@@ -31,7 +33,13 @@ const VegetableCard: React.FC<VegetableCardProps> = ({
         </div>
       </div>
       <div className="font-bold mb-1 mt-2 flex justify-between">
-        <span className='hover:text-green'>{productName}</span>
+        {productNameLink ? ( // Check if productNameLink is provided
+          <Link href={productNameLink} className="hover:text-green">
+            {productName}
+          </Link>
+        ) : (
+          <span>{productName}</span>
+        )}
         <span className='text-green'>{percentage}</span>
       </div>
       <div>{description}</div>

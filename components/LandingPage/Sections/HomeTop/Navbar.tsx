@@ -67,7 +67,7 @@ const Navbar = () => {
                         fontSize="large"
                         className="cursor-pointer text-black"
                         onClick={toggleMenu}
-                    />
+                    /> 
                 </div>
                 <ul className="flex flex-col items-center gap-8 mt-8">
                     {NAV_LINKS.map((link) => (
