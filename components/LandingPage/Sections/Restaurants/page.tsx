@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import StoreCard from '@/common_views/StoreCard';
 import axios from 'axios';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Restaurants {
     id: string;
@@ -15,6 +16,8 @@ interface Restaurants {
 
 const Restaurants: React.FC = () => {
     const [restaurants, setRestaurants] = useState<Restaurants[]>([]);
+
+    const {t} = useLanguage();
 
     useEffect(() => {
         const fetchRestaurants = async () => {
@@ -43,8 +46,8 @@ const Restaurants: React.FC = () => {
     return (
         <section id="topStores" className=" pb-20 bg-lightGray p-5">
             <div className="flex flex-col items-center">
-                <h2 className="text-4xl lg:text-4xl font-semibold m-10 text-center">Our Top <span className='text-green'>Restaurants</span></h2>
-                <p className='text-textGray max-w-lg  mx-auto text-center mb-5 leading-30'>Discover an enhanced search experience, personalized recommendation, streamlined ordering, and faster checkout in our latest update. Elevate your app usage with these improvements.</p>
+                <h2 className="text-4xl lg:text-4xl font-semibold m-10 text-center">{t('TOP_RESTAURANTS')}</h2>
+                <p className='text-textGray max-w-lg  mx-auto text-center mb-5 leading-30'>{t('TOP_RESTAURANTS_DESCRIPTION')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {restaurants.map((restaurants, index) => (
                         <StoreCard

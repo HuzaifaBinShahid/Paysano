@@ -1,7 +1,6 @@
 import HomeTop from "./Sections/HomeTop/page";
 import HelloAndWelcome from "./Sections/HelloAndWelcome/page";
 import AllVegetables from "./Sections/AllVegetables/page";
-import Organic from "./Sections/Organic/page";
 import TopStores from "./Sections/TopStores/page";
 import Restuarants from "./Sections/Restaurants/page";
 import Contact from "./Sections/Contact/page";
@@ -18,7 +17,6 @@ const page = () => {
             <Contact />
             <Footer />
         </div>
-
     )
 }
 

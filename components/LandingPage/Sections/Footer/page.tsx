@@ -1,7 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
+    const {t} = useLanguage();
+
     return (
         <section className='footer mt-12 md:ml-3'>
 
@@ -12,38 +15,36 @@ const Footer = () => {
                     </div>
 
                     <div className='text text-textGray text-center sm:text-start max-w-sm lg:max-w-md '>
-                        <p className="mx-auto lg:mx-0">This app seamlessly integrates local restaurants and stores, allowing users to explore nearby restaurants for online food orders with detailed menu information.</p>
+                        <p className="mx-auto lg:mx-0">{t('FOOTER_DESCRIPTION')}</p>
                     </div>
                 </div>
-
-
                 <div className="sections mt-12 lg:w-1/2 lg:pl-10 flex flex-col lg:flex-row items-center text-center lg:items-start lg:text-start "> 
                     <div className="support flex-1 m-6">
-                        <h1 className="text-2xl font-semibold mb-6">Support</h1>
+                        <h1 className="text-2xl font-semibold mb-6">{t('SUPPORT')}</h1>
                         <ul className="space-y-3 text-textGray ">
-                            <li className='hover:text-green'>Home</li>
-                            <li className='hover:text-green'>About</li>
-                            <li className='hover:text-green'>FAQs</li>
-                            <li className='hover:text-green'>Support</li>
+                            <li className='hover:text-green'>{t('LIST_HOME')}</li>
+                            <li className='hover:text-green'>{t('LIST_ABOUT')}</li>
+                            <li className='hover:text-green'>{t('LIST_FAQS')}</li>
+                            <li className='hover:text-green'>{t('LIST_SUPPORT')}</li>
                         </ul>
                     </div>
 
                     <div className="trending flex-1 m-6">
-                        <h1 className="text-2xl font-semibold mb-6">Trending</h1>
+                        <h1 className="text-2xl font-semibold mb-6">{t('TRENDING')}</h1>
                         <ul className="space-y-3 text-textGray">
-                            <li className='hover:text-green'>Shop</li>
-                            <li className='hover:text-green'>Portfolio</li>
-                            <li className='hover:text-green'>Blog</li>
+                            <li className='hover:text-green'>{t('LIST_SHOP')}</li>
+                            <li className='hover:text-green'>{t('LIST_PORTFOLIO')}</li>
+                            <li className='hover:text-green'>{t('LIST_BLOGS')}</li>
                         </ul>
                     </div>
 
                     <div className="features w-full md:flex-none  m-6">
-                        <h1 className="text-2xl font-semibold mb-6">Features</h1>
+                        <h1 className="text-2xl font-semibold mb-6">{t('FEATURES')}</h1>
                         <ul className="space-y-3 text-textGray">
-                            <li className='hover:text-green'>Help Center</li>
-                            <li className='hover:text-green'>Paid with Mobile</li>
-                            <li className='hover:text-green'>Status</li>
-                            <li className='hover:text-green'>Contact Support</li>
+                            <li className='hover:text-green'>{t('LIST_HELPCENTER')}</li>
+                            <li className='hover:text-green'>{t('LIST_PAID')}</li>
+                            <li className='hover:text-green'>{t('LIST_STATUS')}</li>
+                            <li className='hover:text-green'>{t('LIST_CONTACT_SUPPORT')}</li>
                         </ul>
                     </div>
                 </div>

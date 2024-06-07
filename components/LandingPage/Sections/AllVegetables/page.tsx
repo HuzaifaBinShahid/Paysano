@@ -1,10 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import axios from 'axios';
 import VegetableCard from '@/common_views/VegetableCard';
 import RoundedButton from '@/common_views/RoundedButton';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Vegetable {
   id: number;
@@ -22,6 +22,8 @@ const AllVEGETABLES: React.FC = () => {
   const [showComponent, setShowComponent] = useState(false);
   const [vegetables, setVegetables] = useState<Vegetable[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const { t } = useLanguage();
 
   useEffect(() => {
     const fetchVegetables = async () => {
@@ -71,9 +73,9 @@ const AllVEGETABLES: React.FC = () => {
             className="rotate-90 lg:rotate-0"
           />
           <div className="absolute inset-0 bg-[#0000004D] bg-opacity-50 flex flex-col items-center justify-center text-center text-white p-4 ">
-            <h2 className="text-2xl lg:text-4xl font-semibold mb-4 opacity-100">Vegetables</h2>
+            <h2 className="text-2xl lg:text-4xl font-semibold mb-4 opacity-100">{t('ALL_VEGETABLES')}</h2>
             <div className="bg-green h-[50px] w-[150px] rounded-full flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110">
-              <RoundedButton type="button" title="Restaurants" variant="text-black font-bold" full={true} />
+              <RoundedButton type="button" title={t('RESTAURANTS_BUTTON')} variant="text-black font-bold" full={true} />
             </div>
           </div>
         </div>

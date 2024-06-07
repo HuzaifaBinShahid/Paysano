@@ -2,9 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import axios from 'axios';
-
-// Importing Components
-// import RoundedButton from "@/common_views/RoundedButton";
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Category {
   id: number;
@@ -17,6 +15,8 @@ interface Category {
 const HelloAndWelcome: React.FC = () => {
   const [showComponent, setShowComponent] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
+
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Fetch data from Categories API
@@ -54,10 +54,9 @@ const HelloAndWelcome: React.FC = () => {
       <div className='container mx-auto grid grid-cols-1 gap-10'>
 
         <div className='text-center'>
-          <h2 className='font-bold text-4xl'>HELLO & WELCOME</h2>
+          <h2 className='font-bold text-4xl'>{t('HELLO')}</h2>
           <div className=' mx-auto w-full md:w-3/6 '>
-            <p>Explore nearby restaurants and shops, discover enticing menus, read reviews, and effortlessly place orders.
-              <span className='text-green'> Welcome to Paysano</span> where convenience meets local delights.</p>
+            <p>{t('HELLO_DESCRIPTION')}</p>
           </div>
         </div>
 

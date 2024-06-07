@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StoreCard from '@/common_views/StoreCard';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Stores {
     id: string;
@@ -16,6 +17,8 @@ interface Stores {
 
 const TopStores: React.FC = () => {
     const [topstores, setTopStores] = useState<Stores[]>([]);
+
+    const {t} = useLanguage();
 
     useEffect(() => {
         const fetchStores = async () => {
@@ -44,8 +47,8 @@ const TopStores: React.FC = () => {
     return (
         <section id="topStores" className="mt-20 pb-20 bg-lightGray p-5">
             <div className="flex flex-col items-center ">
-                <h2 className="text-4xl lg:text-4xl font-semibold m-10">Our Top <span className='text-green'>Stores</span></h2>
-                <p className='text-textGray max-w-lg mx-auto text-center mb-5'>Discover an enhanced search experience, personalized recommendation, streamlined ordering, and faster checkout in our latest update. Elevate your app usage with these improvements.</p>
+                <h2 className="text-4xl lg:text-4xl font-semibold lg:m-10 m-5 text-center">{t('TOP_STORES')}</h2>
+                <p className='text-textGray max-w-lg mx-auto text-center mb-5'>{t('TOP_STORES_DESCRIPTION')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
                     {topstores.map((store, index) => (
                         <StoreCard

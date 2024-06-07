@@ -1,10 +1,12 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from "@/components/LandingPage/Sections/HomeTop/Navbar";
-import Image from "next/image";
 import RoundedButton from "@/common_views/RoundedButton";
+import { useLanguage } from '@/context/LanguageContext';
 
 const HomeTop = () => {
+
+  const { t } = useLanguage();
 
   // Animation
 
@@ -38,18 +40,17 @@ const HomeTop = () => {
             {/* text div */}
             <div>
               <h2 className="font-bold text-[30px] lg:text-[70.42px] mb-3">
-                Unveiling the Finest <span className='text-green'>Restaurants</span> and <span className='text-green'>Stores</span>
+              {t('HEADER')}
               </h2>
 
-              <p className="text-[15px] lg:text-[20px] font-semibold text-black-50 "> Savor culinary wonders and explore curated retail gems on our platform.
-                Indulge in diverse restaurant menus and discover unique store products, all in one place.</p>
+              <p className="text-[15px] lg:text-[20px] font-semibold text-black-50 "> {t('HEADER_DESCRIPTION')}</p>
             </div>
             
             {/* button div */}
             <div>
               <RoundedButton
                 type="button"
-                title="Start Your Exploration"
+                title={t('HEADER_BUTTON')}
                 variant="btn_dark_green"
                 className="transform transition-transform duration-300 ease-in-out hover:translate-x-2 font-bold"
               />
