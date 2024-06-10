@@ -39,8 +39,8 @@ const HomeTop = () => {
           <div className='max-w-[900px] flex flex-col gap-5 my-20 lg:my-10 lg:p-10 text-center lg:text-left  '>
             {/* text div */}
             <div>
-              <h2 className="font-bold text-[30px] lg:text-[70.42px] mb-3">
-              {t('HEADER')}
+              <h2 className="font-bold text-[30px] lg:text-[70.42px] mb-3" dangerouslySetInnerHTML={{ __html: t('HEADER') }}>
+              
               </h2>
 
               <p className="text-[15px] lg:text-[20px] font-semibold text-black-50 "> {t('HEADER_DESCRIPTION')}</p>

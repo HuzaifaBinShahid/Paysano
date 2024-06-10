@@ -5,6 +5,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import Navbar from '@/components/LandingPage/Sections/HomeTop/Navbar';
 import Footer from '@/components/LandingPage/Sections/Footer/page';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface Vegetable {
   id: number;
@@ -22,6 +23,8 @@ const VegetableDetail: React.FC = () => {
   const { id } = useParams(); // Use useParams to get the id
   const [vegetable, setVegetable] = useState<Vegetable | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const {t} = useLanguage();
 
   useEffect(() => {
     if (id) {
@@ -56,7 +59,7 @@ const VegetableDetail: React.FC = () => {
   }
   return (
     <>
-      <div className="pt-10">
+      <div className="p-10 lg:pt-10 lg:px-0">
         <Navbar />
       </div>
       <div id="VegetableDetail" className="m-5 mx-auto md:w-[95%] lg:max-w-fit mt-[150px] bg-white rounded-xl shadow-2xl transition-all duration-1000 ease-in-out">
@@ -76,7 +79,7 @@ const VegetableDetail: React.FC = () => {
             <div className="tracking-wide text-4xl font-semibold hover:text-green">{vegetable.name}</div>
             <p className="mt-2 text-gray-500 text-xl">{vegetable.description}</p>
             <div className="mt-12">
-              <span className="font-semibold text-2xl">Estimated Delivery Time</span>
+              <span className="font-semibold text-2xl">{t('Delivery')}</span>
               <span className="text-textGray flex items-center">
                 <Image
                   src="/organicSection/clock.svg"
@@ -88,7 +91,7 @@ const VegetableDetail: React.FC = () => {
               </span>
             </div>
             <div className="mt-12">
-              <span className="font-semibold text-2xl">VAT Value</span>
+              <span className="font-semibold text-2xl">VAT {t('Value')}</span>
               <span className="text-green flex items-center font-semibold">{vegetable.vat_value}%</span>
             </div>
             <div className="mt-12 flex justify-between">

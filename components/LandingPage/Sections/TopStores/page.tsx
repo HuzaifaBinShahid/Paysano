@@ -47,14 +47,14 @@ const TopStores: React.FC = () => {
     return (
         <section id="topStores" className="mt-20 pb-20 bg-lightGray p-5">
             <div className="flex flex-col items-center ">
-                <h2 className="text-4xl lg:text-4xl font-semibold lg:m-10 m-5 text-center">{t('TOP_STORES')}</h2>
+                <h2 className="text-4xl lg:text-4xl font-semibold lg:m-10 m-5 text-center" dangerouslySetInnerHTML={{ __html: t('TOP_STORES') }}></h2>
                 <p className='text-textGray max-w-lg mx-auto text-center mb-5'>{t('TOP_STORES_DESCRIPTION')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
                     {topstores.map((store, index) => (
                         <StoreCard
                             key={index}
                             storeName={store.name}
-                            openingHours={`${store.open_time} - ${store.close_time}`}
+                            openingHours={`${store.open_time} Am - ${store.close_time} Pm`}
                             rating={store.average_rating.toString()} // Converting number to string
                             numberOfReviews={store.reviews.toString()} // Converting number to string
                             imageSrc={store.profile_pic}

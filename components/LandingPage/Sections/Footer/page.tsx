@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import logo from '@/public/logo-main.svg'
 import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
             <div className='flex flex-col lg:flex-row'> 
                 <div className='first-half lg:w-1/2 lg:pr-10 flex flex-col items-center justify-center'> 
                     <div className="logo mb-6 ">
-                        <Image src="./logo-main.svg" alt='' width={64} height={53} />
+                        <Image src={logo} alt='logo' width={64} height={53} />
                     </div>
 
                     <div className='text text-textGray text-center sm:text-start max-w-sm lg:max-w-md '>

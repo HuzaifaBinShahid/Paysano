@@ -46,7 +46,7 @@ const Restaurants: React.FC = () => {
     return (
         <section id="topStores" className=" pb-20 bg-lightGray p-5">
             <div className="flex flex-col items-center">
-                <h2 className="text-4xl lg:text-4xl font-semibold m-10 text-center">{t('TOP_RESTAURANTS')}</h2>
+                <h2 className="text-4xl lg:text-4xl font-semibold lg:m-10 my-3 text-center" dangerouslySetInnerHTML={{ __html: t('TOP_RESTAURANTS') }}></h2>
                 <p className='text-textGray max-w-lg  mx-auto text-center mb-5 leading-30'>{t('TOP_RESTAURANTS_DESCRIPTION')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {restaurants.map((restaurants, index) => (

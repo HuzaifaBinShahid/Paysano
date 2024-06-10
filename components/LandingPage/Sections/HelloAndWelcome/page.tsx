@@ -56,7 +56,7 @@ const HelloAndWelcome: React.FC = () => {
         <div className='text-center'>
           <h2 className='font-bold text-4xl'>{t('HELLO')}</h2>
           <div className=' mx-auto w-full md:w-3/6 '>
-            <p>{t('HELLO_DESCRIPTION')}</p>
+            <p dangerouslySetInnerHTML={{ __html: t('HELLO_DESCRIPTION') }}></p>
           </div>
         </div>
 

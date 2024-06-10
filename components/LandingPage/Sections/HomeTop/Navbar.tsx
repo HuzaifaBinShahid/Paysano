@@ -6,7 +6,7 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 import { useLanguage } from "@/context/LanguageContext";
 import globe from "@/public/language.svg";
 import dropdownicon from "@/public/dropdown.svg";
-import { translations } from "@/constants/translations"; 
+import { translations } from "@/constants/translations";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -86,6 +86,23 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+
+          {/* <Link href="/getstarted">
+            <Image src="/search.svg" alt="search" width={24} height={24} className="inline-block cursor-pointer " />
+          </Link> */}
+          <div className="relative">
+            <div className="flex items-center cursor-pointer" onClick={toggleDropdown}>
+              <Image src={globe} alt="globe" />
+              <p className="text-lg px-2">{language === 'en' ? 'English' : 'Italian'}</p>
+              <Image src={dropdownicon} alt="dropdown" />
+            </div>
+            {dropdownVisible && (
+              <div className="absolute top-11 right-0 bg-white p-3 rounded shadow-lg">
+                <p className="text-lg font-semibold p-3 cursor-pointer" onClick={() => changeLanguage('en')}>English</p>
+                <p className="text-lg font-semibold p-3 cursor-pointer" onClick={() => changeLanguage('it')}>Italian</p>
+              </div>
+            )}
+          </div>
         </ul>
       </div>
     </nav>
