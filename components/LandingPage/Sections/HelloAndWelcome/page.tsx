@@ -199,8 +199,6 @@ const HelloAndWelcome: React.FC = () => {
                     />
                   </div>
 
-
-
                 </div>
 
                 <div className='relative hidden md:flex flex-col items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2'>
@@ -277,10 +275,6 @@ const HelloAndWelcome: React.FC = () => {
 
 
                 </div> */}
-
-
-
-
 
               </div>
             </div>

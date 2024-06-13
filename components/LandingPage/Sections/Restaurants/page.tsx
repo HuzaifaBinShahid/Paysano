@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import StoreCard from '@/common_views/StoreCard';
 import axios from 'axios';
 import { useLanguage } from '@/context/LanguageContext';
+import Link from 'next/link';
 
 interface Restaurants {
     id: string;
@@ -17,7 +18,7 @@ interface Restaurants {
 const Restaurants: React.FC = () => {
     const [restaurants, setRestaurants] = useState<Restaurants[]>([]);
 
-    const {t} = useLanguage();
+    const { t } = useLanguage();
 
     useEffect(() => {
         const fetchRestaurants = async () => {
@@ -48,19 +49,21 @@ const Restaurants: React.FC = () => {
             <div className="flex flex-col items-center">
                 <h2 className="text-4xl lg:text-4xl font-semibold lg:m-10 my-3 text-center" dangerouslySetInnerHTML={{ __html: t('TOP_RESTAURANTS') }}></h2>
                 <p className='text-textGray max-w-lg  mx-auto text-center mb-5 leading-30'>{t('TOP_RESTAURANTS_DESCRIPTION')}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {restaurants.map((restaurants, index) => (
-                        <StoreCard
-                            key={index}
-                            storeName={restaurants.name}
-                            openingHours={`${restaurants.open_time} - ${restaurants.close_time}`}
-                            rating={restaurants.average_rating.toString()}
-                            numberOfReviews={restaurants.reviews.toString()}
-                            imageSrc={restaurants.profile_pic}
-                            emptyStarSrc='/storesSection/emptyStar.svg'
-                        />
-                    ))}
-                </div>
+                <Link href='/restaurantsDetail' >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {restaurants.map((restaurants, index) => (
+                            <StoreCard
+                                key={index}
+                                storeName={restaurants.name}
+                                openingHours={`${restaurants.open_time} - ${restaurants.close_time}`}
+                                rating={restaurants.average_rating.toString()}
+                                numberOfReviews={restaurants.reviews.toString()}
+                                imageSrc={restaurants.profile_pic}
+                                emptyStarSrc='/storesSection/emptyStar.svg'
+                            />
+                        ))}
+                    </div>
+                </Link>
             </div>
         </section>
     );

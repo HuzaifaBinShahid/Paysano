@@ -45,6 +45,7 @@ module.exports = {
         pattern: "url('/pattern.png')",
         'pattern-2': "url('/pattern-bg.png')",
         'vegetables-img': "url('/welcomeSection/Vegetables.svg')",
+        'detail-bg':"url(/restaurantsDetail/background.png)",
       },
 
       screen:{

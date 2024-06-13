@@ -53,9 +53,9 @@ const translations: Translations = {
   en: {
     NAV_LINKS: [
       { href: '/', key: 'home', label: 'Home' },
-      { href: '/about', key: 'how_hilink_work', label: 'About' },
-      { href: '/faqs', key: 'services', label: 'FAQs' },
-      { href: '/contactus', key: 'pricing', label: 'Contact Us' },
+      { href: '/vegetables', key: 'how_hilink_work', label: 'Vegetables' },
+      { href: '/stores', key: 'services', label: 'Stores' },
+      { href: '/restaurants', key: 'pricing', label: 'Restaurants' },
       { href: '/getstarted', key: 'pricing', label: 'Get Started' },
     ],
     HEADER: 'Unveiling the Finest <span class="text-green">Stores</span> and <span class = "text-green">Restaurants </span>',
@@ -118,7 +118,7 @@ const translations: Translations = {
     SUBSCRIBE: "Iscriviti",
     FOOTER_DESCRIPTION: "Questa app integra senza soluzione di continuità ristoranti e negozi locali, consentendo agli utenti di esplorare i ristoranti nelle vicinanze per ordini di cibo online con informazioni dettagliate sui menu.",
     SUPPORT: "Assistenza",
-    TRENDING: "Di tendenza",
+    TRENDING: "Ditendenza",
     FEATURES: "Caratteristiche",
     LIST_HOME: "Home",
     LIST_ABOUT: "Informazioni",

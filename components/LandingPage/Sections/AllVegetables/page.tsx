@@ -86,7 +86,7 @@ const AllVEGETABLES: React.FC = () => {
               iconSrc={`https://dashboard.paysano.it/public/storage/${vegetable.image}`}
               iconAlt={vegetable.name}
               date={new Date(vegetable.created_at).toLocaleDateString()}
-              price={`${vegetable.price} per ${vegetable.weight}`}
+              price={`$ ${vegetable.price} per ${vegetable.weight}`}
               productName={vegetable.name}
               productNameLink={`/vegetable/${vegetable.id}`} // Pass the link here
               percentage={`${vegetable.vat_value}% VAT`}
@@ -94,7 +94,6 @@ const AllVEGETABLES: React.FC = () => {
             />
           ))}
         </div>
-
       </div>
     </section>
   );

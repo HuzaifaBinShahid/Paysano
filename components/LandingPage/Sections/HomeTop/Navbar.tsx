@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <nav className={`flexBetween`}>
-      <Link href="/" className="lg:padding-container">
+      <Link href="/" className="lg:padding-container mt-5">
         <Image src="/logo-main.svg" alt="logo" width={90} height={29} />
       </Link>
 
