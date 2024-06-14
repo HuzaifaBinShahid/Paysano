@@ -39,7 +39,7 @@ const VegetableDetail: React.FC = () => {
           setLoading(false);
         } catch (error) {
           console.error('Error fetching vegetable:', error);
-          setLoading(false);
+          setLoading(false); 
         }
       };
 

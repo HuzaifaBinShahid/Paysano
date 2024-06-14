@@ -43,11 +43,9 @@ const VegetableCard: React.FC<VegetableCardProps> = ({
   if (productNameLink) {
     return (
       <Link href={productNameLink}>
-
         <div className="hover:text-green">
           <CardContent />
         </div>
-
       </Link>
     );
   }
