@@ -61,7 +61,7 @@ const translations: Translations = {
     HEADER: 'Unveiling the Finest <span class="text-green">Stores</span> and <span class = "text-green">Restaurants </span>',
     HEADER_DESCRIPTION: 'Savor culinary wonders and explore curated retail gems on our platform. Indulge in diverse restaurant menus and discover unique store products, all in one place.',
     HEADER_BUTTON: "Start your Exploration",
-    HELLO: 'Hello and Welcome',
+    HELLO: 'Hello & Welcome',
     HELLO_DESCRIPTION: 'Explore nearby restaurants and shops, discover enticing menus, read reviews, and effortlessly place orders. <span class = "text-green">Welcome to Paysano</span> where convenience meets local delights.',
     ALL_VEGETABLES: "Vegetables",
     RESTAURANTS_BUTTON: "View All",
